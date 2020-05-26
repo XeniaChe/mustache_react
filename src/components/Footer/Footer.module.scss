@@ -1,0 +1,48 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.footer{
+    background-color: $base_color_dark;
+    grid-column: full-start / full-end;
+    
+    display: grid;
+    grid-template-columns: [full-start]  1fr  [full-end center-start] repeat(8, [col-start]  minmax(min-content, 14rem) [col-end]) [center-end]  1fr [full-end] ;
+
+    &__box{
+         grid-column: center-start/ center-end;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(min-content, 1fr));
+        align-items: center;
+        margin: 4rem 2rem;
+
+        @include respond(phone-450) {
+            grid-template-columns: minmax( min-content, 1fr);
+            justify-items: center;
+        }
+
+        p{
+            color:$base_color_light;
+            font-size: 1.6rem;
+
+            @include respond(phone-450) {
+                order: 0;
+                margin-bottom: 2rem;
+             }
+        }
+
+        
+    }
+    .footer__logos{
+        justify-self: end;
+    
+        @include respond(phone-450) {
+            justify-self: center;
+        }
+    }
+    
+    .logos__list{
+        display: flex;
+        list-style: none;
+    }
+   
+}

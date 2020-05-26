@@ -1,0 +1,14 @@
+//VARIABLES 
+@import './sass/variables';
+
+.App {
+  display: grid;
+  grid-template-columns: [full-start] minmax(17rem, 1fr)  [ center-start] repeat(8, [col-start]  minmax(min-content, 12rem) [col-end]) [center-end] minmax(17rem, 1fr) [full-end] ;
+  grid-template-rows: minmax(min-content, 25vh ) minmax(min-content, max-content)   min-content min-content;
+
+  // background-color: orange;
+}
+
+
+
+

@@ -1,0 +1,29 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+
+.header__logo{
+    grid-column: 3/ 7;
+    align-self: center;
+    justify-self: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+
+    
+    
+
+    .logo_img{
+        width: 100%;
+        
+
+        @include respond(tabl-lands-1000 ) {
+            width: 80%;
+            transform: translateX(10%);
+        } 
+
+        @include respond(phone-450) {
+            width: 100%;
+            transform: translateX(0);
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.header{
+    grid-column: full-start / full-end;
+
+    display: grid;
+    grid-template-columns: [full-start]  1fr  [full-end center-start] repeat(8, [col-start]  minmax(min-content, 12rem) [col-end]) [center-end]  1fr [full-end] ;
+
+
+}
+.header__box{
+    grid-column: center-start/ center-end;
+    background-color: $base_color_light;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+
+}
+
+// link--active

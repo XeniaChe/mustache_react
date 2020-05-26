@@ -1,0 +1,84 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+
+
+.logos__item:not(:last-child){
+    margin-right: 2.5rem;
+
+    @include respond(phone-450) {
+        margin-right: 3.5rem;
+    }
+}
+.logos__link{
+    text-decoration: none;
+    color:white;
+    background-size: cover;
+    display: block;
+    opacity: 1;
+    text-indent: -999rem;
+    height: 4rem;
+    width: 4rem;
+    
+    &.link__twitter{ 
+        background-color: red;
+        background-image: url(../../../images/icons/icon-twitter.jpg);
+        &:hover{
+            background-image: url(../../../images/icons/icon-twitter-hover.jpg);
+        }
+    }
+    &.link__facebook{ 
+        background-image: url(../../../images/icons/icon-facebook.jpg);
+        &:hover{
+            background-image: url(../../../images/icons/icon-facebook-hover.jpg);
+        }
+    }
+    &.link__google{ 
+        background-image: url(../../../images/icons/icon-googleplus.jpg);
+        &:hover{
+            background-image: url(../../../images/icons/icon-googleplus-hover.jpg);
+        }
+    }
+    &.link__pinterest{ 
+        background-image: url(../../../images/icons/icon-pinterest.jpg);
+        &:hover{
+            background-image: url(../../../images/icons/icon-pinterest-hover.jpg);
+        }
+    }
+}
+
+// .logos__link{
+//     color: transparent;
+//     background-size: cover;
+//     display: block;
+//     opacity: 1;
+//     text-indent: -999rem;
+//     height: 4rem;
+//     width: 4rem;
+    
+//     &.link__twitter{ 
+//         background-image: url(../../../images/icons/icon-twitter.jpg);
+//         &:hover{
+//             background-image: url(../../../images/icons/icon-twitter-hover.jpg);
+//         }
+//     }
+//     &.link__facebook{ 
+//         background-image: url(../../../images/icons/icon-facebook.jpg);
+//         &:hover{
+//             background-image: url(../../../images/icons/icon-facebook-hover.jpg);
+//         }
+//     }
+//     &.link__google{ 
+//         background-color: red;
+//         background-image: url(../../../images/icons/icon-googleplus.jpg);
+//         &:hover{
+//             background-image: url(../../../images/icons/icon-googleplus-hover.jpg);
+//         }
+//     }
+//     &.link__pinterest{ 
+//         background-image: url(../../../images/icons/icon-pinterest.jpg);
+//         &:hover{
+//             background-image: url(../../../images/icons/icon-pinterest-hover.jpg);
+//         }
+//     }
+// }
