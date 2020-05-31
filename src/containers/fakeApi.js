@@ -13,12 +13,13 @@ class Api {
                         {photo:'./images/mustache9.jpg', id: '19'}
                     ]
                 ;
+        
     }
     // async getResult () {
     //     try{
     //         const res = await fetch('http://localhost:3000/persons');
-    //         const data = await res.json();
-    //         this.persons = data.persons;            
+    //         const result = await res.json();
+    //         this.persons = result.data;            
     //     } catch (error) {
     //         alert ('Something went wrong')
     //     }

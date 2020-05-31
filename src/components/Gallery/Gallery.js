@@ -8,8 +8,8 @@ const Gallery = (props) => {
     styleGallery.push(classes.margin__bottom_l);
 
     //RENDERING LIST
-    const persons = props.list.map ( (el, elIndex) => {
-        return <GalleryItem photo={el.photo} key={el.id} alt={elIndex}/>
+    const persons = props.list.map((el, elIndex) => {
+        return <GalleryItem photo={el.image} key={el.id} alt={elIndex}/>
     });
 
     return(
