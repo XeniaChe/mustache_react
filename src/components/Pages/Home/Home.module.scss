@@ -1,0 +1,172 @@
+@import '../../../sass/mixins';
+@import '../../../sass/variables';
+
+.main{
+    grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns: [full-start]  1fr  [full-end center-start] repeat(8, [col-start]  minmax(min-content, 14rem) [col-end]) [center-end]  1fr [full-end] ;
+
+    background-image: url(../../../images/the-beacon.jpg);
+    background-size: cover;
+    min-height: 60vh;
+
+    &__box{
+        grid-column: col-start 5 / center-end;
+
+        display: grid;
+        grid-template-columns: minmax( min-content, max-content);
+        grid-row-gap: 2rem;
+        align-self: center;
+        justify-self: start;
+
+        justify-items: start;
+        margin: 4rem;
+
+        @include respond(tabl-port-800) {
+           justify-items: end;
+        }
+      
+        
+        @include respond(phone-500) {
+            grid-column: center-start/ center-end;
+            justify-items: center;
+            justify-content: center;
+        }
+        
+        .main__text{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            @include respond(tabl-port-800) {
+                align-items: flex-end;
+            }
+
+            @include respond(phone-500) {
+                align-items: center;
+            }
+ 
+            p{
+                font-size: 2.6rem;
+                margin: 1.0rem;
+                margin-left: 0;
+    
+                display: inline-block;
+                text-align: center;
+                background-color:$base_color_dark;
+                color: $base_color_light;
+                padding: 1.2rem 2rem;
+                
+                @include respond(tabl-lands-1200 ) {
+                    font-size: 2.3rem;
+                } 
+                @include respond(tabl-lands-1100) {
+                    font-size: 2.0rem;
+                    padding: 1.0rem 1.8rem;
+                    margin: .5rem;
+                }
+               
+            }
+        }
+       
+    }
+
+    &__box-img{
+        grid-column: full-start/ span 12;
+        grid-row: 1;
+    }
+    &__img{
+        width: 100%; 
+        height: 100%;
+    }
+}
+.people{
+    background-color: $base_color_light;
+
+    grid-column: full-start / full-end;
+    
+    display: grid;
+    grid-template-columns: [full-start]  1fr  [full-end center-start] repeat(8, [col-start]  minmax(min-content, 14rem) [col-end]) [center-end]  1fr [full-end] ;
+
+    &__box{
+        grid-column: center-start/ center-end;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        justify-content: center;
+
+        margin-top: 3rem;
+        margin-bottom: 6rem;
+    }
+}
+
+.header__main{
+    display: inline-block;
+    text-align: center;
+    padding: 1.2rem .5rem;
+    background-color: $base_color_light;
+    color: $base_color_dark;
+    font-family: $font_family_1;
+    font-size: 3rem;
+    text-transform: uppercase;
+
+    // &--large{
+    //     font-size: 3.5rem;
+    //     text-transform: uppercase;
+    //     background-color: $base_color_dark;
+    //     color: $base_color_light;
+    //     color: red;
+      
+    // }
+
+    @include respond(phone-700) {
+        font-size: 2.2rem;
+    }
+}
+
+.btn {
+    &,
+    &:link, 
+    &:visited {
+        
+        text-decoration: none;
+        text-transform: uppercase;  border: none;
+        cursor: pointer;
+        display: inline-block;   
+        padding:2.0rem 3rem;
+        background-color: $base_color_green;
+        color: $base_color_light;
+        transition: all   0.3s;
+        box-shadow: 0 .5rem 1rem rgba(black, 0.4);  
+        font-size: 2rem;
+
+        @include respond(tabl-lands-1200) {
+            padding: 1.5rem 2.2rem;
+        }
+
+        @include respond(tabl-port-900) {
+            padding: 1.0rem 1.5rem;
+        }
+
+        @include respond(tabl-port-800) {
+            padding: 1.0rem 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        background-color: $base_color_green_light;
+    }
+
+
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-0.1rem);
+        box-shadow: 0 .5rem 1rem rgba(black, 0.4);   
+    }
+
+    
+}

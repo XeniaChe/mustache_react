@@ -1,0 +1,15 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.gallery{
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    grid-gap: 2rem;
+    margin-bottom: 6rem;
+     @include respond(phone-500) {
+        grid-template-columns: repeat(2, minmax(27rem, 1fr));
+    }
+
+}
+

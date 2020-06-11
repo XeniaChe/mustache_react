@@ -17,5 +17,59 @@
     grid-template-columns: repeat(8, 1fr);
 
 }
+.header__nav{
+    grid-column: 3/ 7;
+    align-self: center;
+    margin-bottom: 4rem;
 
-// link--active
+    
+    @include respond(tabl-port-800) {
+        grid-column: 2/ 8;
+    }
+
+   
+    
+}
+
+.nav__list{
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(phone-500) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.nav__item{
+    list-style: none;
+    
+}
+
+.nav__link{
+    text-decoration: none;
+    color: $base_color_dark; 
+    font-size: 1.6rem;
+    font-family: $font_family_3;
+    font-weight: 700;
+    position: relative;
+
+
+    &:hover{
+        color:$base_color_green;
+    }
+
+    @include respond(phone-600 ) {
+        font-size: 2.0rem;
+    }
+    @include respond(phone-500) {
+        font-size: 2.3rem;
+        margin: 2.0rem;
+    }
+    
+    &._active{
+        color: $base_color_green;
+    }
+   
+}
+
