@@ -50,7 +50,6 @@
                 font-size: 2.6rem;
                 margin: 1.0rem;
                 margin-left: 0;
-    
                 display: inline-block;
                 text-align: center;
                 background-color:$base_color_dark;
@@ -65,10 +64,8 @@
                     padding: 1.0rem 1.8rem;
                     margin: .5rem;
                 }
-               
             }
         }
-       
     }
 
     &__box-img{
@@ -82,19 +79,15 @@
 }
 .people{
     background-color: $base_color_light;
-
     grid-column: full-start / full-end;
-    
     display: grid;
     grid-template-columns: [full-start]  1fr  [full-end center-start] repeat(8, [col-start]  minmax(min-content, 14rem) [col-end]) [center-end]  1fr [full-end] ;
 
     &__box{
         grid-column: center-start/ center-end;
-
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
         justify-content: center;
-
         margin-top: 3rem;
         margin-bottom: 6rem;
     }
@@ -110,63 +103,40 @@
     font-size: 3rem;
     text-transform: uppercase;
 
-    // &--large{
-    //     font-size: 3.5rem;
-    //     text-transform: uppercase;
-    //     background-color: $base_color_dark;
-    //     color: $base_color_light;
-    //     color: red;
-      
-    // }
-
     @include respond(phone-700) {
         font-size: 2.2rem;
     }
 }
 
 .btn {
-    &,
-    &:link, 
-    &:visited {
-        
-        text-decoration: none;
-        text-transform: uppercase;  border: none;
-        cursor: pointer;
-        display: inline-block;   
-        padding:2.0rem 3rem;
-        background-color: $base_color_green;
-        color: $base_color_light;
-        transition: all   0.3s;
-        box-shadow: 0 .5rem 1rem rgba(black, 0.4);  
-        font-size: 2rem;
-
-        @include respond(tabl-lands-1200) {
-            padding: 1.5rem 2.2rem;
-        }
-
-        @include respond(tabl-port-900) {
-            padding: 1.0rem 1.5rem;
-        }
-
-        @include respond(tabl-port-800) {
-            padding: 1.0rem 1.5rem;
-            font-size: 1.5rem;
-        }
-        
-    }
+    text-transform: uppercase;  
+    border: none;
+    cursor: pointer;
+    display: inline-block;   
+    padding:2.0rem 3rem;
+    font-size: 2rem;
+    font-family: $font_family_1;
+    background-color: $base_color_green;
+    color: $base_color_light;
+    transition: all   0.3s;
+    box-shadow: 0 .5rem 1rem rgba(black, 0.4);  
 
     &:hover {
         transform: translateY(-0.3rem);
         background-color: $base_color_green_light;
     }
 
-
-    &:active,
-    &:focus {
-        outline: none;
-        transform: translateY(-0.1rem);
-        box-shadow: 0 .5rem 1rem rgba(black, 0.4);   
+    @include respond(tabl-lands-1200) {
+        padding: 1.5rem 2.2rem;
     }
 
-    
+    @include respond(tabl-port-900) {
+        padding: 1.0rem 1.5rem;
+    }
+
+    @include respond(tabl-port-800) {
+        padding: 1.0rem 1.5rem;
+        font-size: 1.5rem;
+    }
+
 }

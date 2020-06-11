@@ -13,6 +13,7 @@ import Home from './components/Pages/Home/Home';
 import GallerySingle from './containers/GallerySingle/GallerySingle';
 import About from './components/Pages/About/About';
 import Blog from './containers/Blog/Blog';
+import BlogSingle from './containers/BlogSingle/BlogSingle';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/' exact component={Home}/>
             <Route path='/about/' exact component={About}/>
             <Route path='/blog/' exact component={Blog}/>
+            <Route path='/blog/:id'  component={BlogSingle}/>
             <Route path='/gallery/' exact component={Gallery}/>
             <Route path='/gallery/:id'  component={GallerySingle}/>
           <Footer/>

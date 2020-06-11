@@ -13,7 +13,7 @@ const Home = (props) => {
                         <p> using free design pattern</p>
                         <p>from https://freewebsitetemplates.com/</p>
                     </div>
-                    <a href="#" className={classes.btn}> READ MORE</a>
+                    <buttton className={classes.btn}> READ MORE</buttton>
                 </div>
             </section>
             <section className={classes.people}>

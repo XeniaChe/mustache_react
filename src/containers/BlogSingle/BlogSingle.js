@@ -6,14 +6,15 @@ const BlogSingle = (props) => {
     const [stateBlogSingle, setBlogSingle] = useState({ post:null });
 
     useEffect(() => {
+        console.log(props)
         const loadData = async () => {
-            const response = await axios.get('/blog-single-posts/' + props.match.id);
+            const response = await axios.get('/blog-single-posts/' + props.match.params.id);
             console.log(response)
             setBlogSingle({
                 post:{
                    photo: response.data.img,
                    title: response.data.title,
-                   text1: response.data.text1,
+                   text1: response.data.text,
                    text2: response.data.text2,
                    text3: response.data.text3
                 }
@@ -33,7 +34,7 @@ const BlogSingle = (props) => {
                 </div>
                 <div className={classes.blog_single__visual}>
                     <figure className={classes.blog_single__image}>
-                        <img src={`./images/${stateBlogSingle.post.photo}`}  className={classes.photo}></img>
+                        <img src={`../images/${stateBlogSingle.post.photo}`}  className={classes.photo}></img>
                     </figure>
                 </div>
                 </section>

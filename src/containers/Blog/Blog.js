@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import classes from './Blog.module.scss';
-import BlogPost from './BlogPost/BlogPost';
+import BlogItem from '../../components/BlogItem/BlogItem';
 import axios from 'axios';
-import BlogSingle from '../BlogSingle/BlogSingle';
-import { Route } from 'react-router-dom';
+// import BlogSingle from '../BlogSingle/BlogSingle';
+// import { Route } from 'react-router-dom';
 
 const Blog = (props) => {
     let [blogState, setBlog] = useState({ posts: null });
@@ -19,10 +19,10 @@ const Blog = (props) => {
     }, []);
 
     let blogPosts ;
-    if(!blogState.posts) {blogPosts = <h3 style={{textAlign: 'center'}}>Loadin ...</h3>};
+    if(!blogState.posts) {blogPosts = <p style={{textAlign: 'center'}}>Loading ...</p>};
     if (blogState.posts) {
         blogPosts = blogState.posts.map((el) => {
-            return <BlogPost key={el.id} photo={el.img} title={el.title} text={el.text} id={el.id}/> 
+            return <BlogItem key={el.id} photo={el.img} title={el.title} text={el.text} id={el.id} match={props.match}/> 
         })
     };
 
@@ -32,8 +32,7 @@ const Blog = (props) => {
                 <h1 className={classes.header__main__large}>BLOG</h1>
             </div>
             {blogPosts}
-            <Route path={props.match.url}/>
-            <BlogSingle />
+            {/* <Route path= {props.match.url + '/:id'} exact component={BlogSingle}/> */}
         </section>
     );
 };
