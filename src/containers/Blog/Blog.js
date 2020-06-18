@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import classes from './Blog.module.scss';
 import BlogItem from '../../components/BlogItem/BlogItem';
 import axios from 'axios';
-// import BlogSingle from '../BlogSingle/BlogSingle';
-// import { Route } from 'react-router-dom';
+
+import HeaderMain from '../../components/HeaderMain/HeaderMain';
 
 const Blog = (props) => {
     let [blogState, setBlog] = useState({ posts: null });
@@ -29,7 +29,7 @@ const Blog = (props) => {
     return (
         <section className={classes.blog}>
             <div className={classes.blog__title}>
-                <h1 className={classes.header__main__large}>BLOG</h1>
+                <HeaderMain>blog</HeaderMain>
             </div>
             {blogPosts}
             {/* <Route path= {props.match.url + '/:id'} exact component={BlogSingle}/> */}

@@ -1,0 +1,26 @@
+@import '../../sass/mixins';
+@import '../../sass/variables';
+
+.contact{
+    grid-column: col-start 2 / col-end 7;
+
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    margin-bottom: 5rem;
+
+    h1,
+    button {
+        justify-self: center;
+        align-self: center;
+    }
+
+    button{
+            padding: 2rem;
+        }
+}
+
+
+.contact__form{
+    display: flex;
+    flex-direction: column;
+}

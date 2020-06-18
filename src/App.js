@@ -14,6 +14,7 @@ import GallerySingle from './containers/GallerySingle/GallerySingle';
 import About from './components/Pages/About/About';
 import Blog from './containers/Blog/Blog';
 import BlogSingle from './containers/BlogSingle/BlogSingle';
+import Contact from './containers/Contact/Contact';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path='/blog/:id'  component={BlogSingle}/>
             <Route path='/gallery/' exact component={Gallery}/>
             <Route path='/gallery/:id'  component={GallerySingle}/>
+            <Route path='/contact/' component={Contact}/>
           <Footer/>
         </Fragment>
       </div>

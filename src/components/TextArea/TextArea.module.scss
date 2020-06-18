@@ -1,0 +1,25 @@
+@import '../../sass/mixins';
+@import '../../sass/variables';
+
+
+.form__group{
+    margin: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+textarea{
+    position: relative;
+}
+
+textarea ~ label{
+    position: absolute;
+    left: 45%;
+    transition: all .3s;
+
+}
+
+textarea:focus ~ label {
+    opacity: 0;
+    visibility: hidden;
+}

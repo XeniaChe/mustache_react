@@ -1,6 +1,8 @@
 import React , {Fragment, useState, useEffect} from 'react';
 import classes from './BlogSingle.module.scss';
 import axios from 'axios';
+import HeaderMain from '../../components/HeaderMain/HeaderMain';
+import HeaderSecond from '../../components/HeaderSecond/HeaderSecond';
 
 const BlogSingle = (props) => {
     const [stateBlogSingle, setBlogSingle] = useState({ post:null });
@@ -30,7 +32,7 @@ const BlogSingle = (props) => {
             <Fragment>
                 <section className={classes.blog_single}>
                 <div className={classes.blog__title}>
-                    <h1 className={classes.header__main__large}>BLOG SINGLE POST</h1>
+                    <HeaderMain>blog single post</HeaderMain>
                 </div>
                 <div className={classes.blog_single__visual}>
                     <figure className={classes.blog_single__image}>
@@ -39,7 +41,7 @@ const BlogSingle = (props) => {
                 </div>
                 </section>
                 <section className={classes.blog_single__text}>
-                    <h2 className={classes.header__second}>{stateBlogSingle.post.title}</h2>
+                    <HeaderSecond>{stateBlogSingle.post.title}</HeaderSecond>
                     <p>{stateBlogSingle.post.text1}</p>
                     <p>{stateBlogSingle.post.text2}</p>
                     <p>{stateBlogSingle.post.text3}</p>

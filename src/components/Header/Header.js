@@ -3,7 +3,7 @@ import classes from './Header.module.scss';
 import withClass from '../HOC/WithClasses/WithClass';
 import HeaderLogo from './Header-logo/Header-logo';
 
-import {NavLink, Route, Switch} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 const Header = (props) => {
