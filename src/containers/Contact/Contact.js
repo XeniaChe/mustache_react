@@ -70,6 +70,7 @@ const Contact = (props) => {
                     console.log(postResult);
                 };
                 postData();
+                setContactStateSecond({readyToSend: false});
             } catch (error) {
                 console.log(error)
             }
