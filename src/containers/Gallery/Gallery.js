@@ -3,7 +3,6 @@ import { Link} from 'react-router-dom';
 import GalleryItem from '../../components/Gallery-item/GalleryItem';
 import classes from './Gallery.module.scss';
 import axios from 'axios';
-// import GallerySinglePost from '../GallerySingle/GallerySingle';
 
 const Gallery = (props) => {
     
