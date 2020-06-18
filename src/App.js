@@ -4,8 +4,6 @@ import classes from './App.module.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-// import Pages from './containers/Pages';
-
 import {BrowserRouter, Route} from 'react-router-dom';
 
 import Gallery from './containers/Gallery/Gallery';

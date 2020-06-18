@@ -9,7 +9,7 @@ const Blog = (props) => {
     let [blogState, setBlog] = useState({ posts: null });
 
     useEffect (() => {
-        console.log(props)
+        // console.log(props)
         const loadData = async () => {
             const response = await axios.get('/blog-posts/');
             // console.log(response);

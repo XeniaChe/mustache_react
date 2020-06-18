@@ -11,7 +11,7 @@ const BlogSingle = (props) => {
         console.log(props)
         const loadData = async () => {
             const response = await axios.get('/blog-single-posts/' + props.match.params.id);
-            console.log(response)
+            // console.log(response)
             setBlogSingle({
                 post:{
                    photo: response.data.img,

@@ -6,8 +6,8 @@ const Input = (props) => {
         <Fragment>
             <div className={classes.form__group}>
                 <input type="text" className={classes.form__input} name={props.title}
-                    placeholder={props.placeholder} id={props.id} required></input>
-                <label for={props.id} className={classes.form__label}>{props.title}</label>
+                    placeholder={props.placeholder} id={props.id} required onChange={props.changeInptut}></input>
+                <label htmlFor={props.id} className={classes.form__label}>{props.title}</label>
             </div>
         </Fragment>
     )
