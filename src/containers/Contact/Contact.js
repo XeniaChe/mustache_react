@@ -87,10 +87,6 @@ const Contact = (props) => {
             <HeaderMain>let's keep in touch</HeaderMain>
         <form action="#" className={classes.contact__form} id="form" >
             {inputs}
-            {/* <Input title='name' id={inputFields[0].id} placeholder='name' changeInptut={(event) => changeInputDataHAndler(event, inputFields[0].id)}></Input>
-            <Input title='adress' id={inputFields[1].id} placeholder='ADDRESS'></Input>
-            <Input title='email' id={inputFields[2].id} placeholder='EMAIL'></Input>
-            <Input title='number' id={inputFields[3].id} placeholder='PHONE NUMBER'></Input> */}
             <TextArea title={inputFields[4].id} id={inputFields[4].id} placeholder={inputFields[4].placeHolder} changeInput={(event) => changeInputDataHAndler(event, inputFields[4].id)}></TextArea>
         </form>
         <Button click={postDataHandler}>send</Button>
