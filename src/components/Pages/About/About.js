@@ -15,7 +15,7 @@ const About = (props) => {
                 <section className={classes.about__story}>
                     <div className={classes.about__story__text}>
                         <HeaderSecond>Aspernatur excepturi nisi molestiae !</HeaderSecond>
-                        <p>Purus in massa tempor nec feugiat nisl pretium. <a href="#">link to page</a> Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. 
+                        <p>Purus in massa tempor nec feugiat nisl pretium. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. 
                             At elementum eu facilisis sed odio morbi quis. Euismod elementum nisi quis eleifend quam adipiscing vitae.</p>
                     </div>
                     <div className={classes.about__story__text}>

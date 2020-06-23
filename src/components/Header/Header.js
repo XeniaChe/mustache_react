@@ -16,7 +16,7 @@ const Header = (props) => {
                 <div className={classes.header__nav}>
                     <ul className={classes.nav__list}>
                         <li className={classes.nav__item}>
-                            <NavLink to='/' className={classes.nav__link} activeStyle={{color: '#09BFA9'}} exact>HOME</NavLink>
+                            <NavLink to='/home' className={classes.nav__link} activeStyle={{color: '#09BFA9'}} exact>HOME</NavLink>
                         </li>
                         <li className={classes.nav__item}>
                             <NavLink to='/about' className={classes.nav__link} activeStyle={{color: '#09BFA9'}}>ABOUT</NavLink>
