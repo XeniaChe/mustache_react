@@ -5,7 +5,7 @@ import Button from '../../components/UI/Button/Button';
 import HeaderMain from '../../components/UI/HeaderMain/HeaderMain';
 import TextArea from '../../components/TextArea/TextArea';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import SubmitSuccess from '../../components/UI/submitSuccess/submitSuccess';
 
 const Contact = (props) => {
@@ -87,9 +87,11 @@ const Contact = (props) => {
                 console.log(error)
             }
         }
-        setTimeout(() => {
-            props.history.replace('/')
-        }, 2000);
+        return () => {
+            setTimeout(() => {
+                props.history.replace('/')
+            }, 2000);
+        }
     }, [contactState.submitted])
 
 
