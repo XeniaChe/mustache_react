@@ -89,7 +89,7 @@ const Contact = (props) => {
         }
         return () => {
             setTimeout(() => {
-                props.history.replace('/')
+                props.history.replace('/home')
             }, 2000);
         }
     }, [contactState.submitted])

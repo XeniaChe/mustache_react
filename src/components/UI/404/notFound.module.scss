@@ -1,0 +1,18 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+
+.mainBox{
+    grid-column: center-start / center-end;
+    height: 60vh;
+}
+.innerBox{
+    width: 30vw;
+    border: 1px solid $base_color_dark;
+    margin: 5rem auto;
+}
+.text{
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 5rem 8rem;
+}
