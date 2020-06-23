@@ -13,6 +13,7 @@ import About from './components/Pages/About/About';
 import Blog from './containers/Blog/Blog';
 import BlogSingle from './containers/BlogSingle/BlogSingle';
 import Contact from './containers/Contact/Contact';
+import submitSuccess from './components/UI/submitSuccess/submitSuccess';
 
 function App() {
   return (
@@ -20,13 +21,13 @@ function App() {
       <div className={classes.App}>
         <Fragment>
           <Header/>
-            <Route path='/' exact component={Home}/>
-            <Route path='/about/' exact component={About}/>
-            <Route path='/blog/' exact component={Blog}/>
-            <Route path='/blog/:id'  component={BlogSingle}/>
-            <Route path='/gallery/' exact component={Gallery}/>
-            <Route path='/gallery/:id'  component={GallerySingle}/>
-            <Route path='/contact/' component={Contact}/>
+              <Route path='/' exact component={Home}/>
+              <Route path='/about/' exact component={About}/>
+              <Route path='/blog/' exact component={Blog}/>
+              <Route path='/blog/:id'  component={BlogSingle}/>
+              <Route path='/gallery/' exact component={Gallery}/>
+              <Route path='/gallery/:id'  component={GallerySingle}/>
+              <Route path='/contact/' component={Contact}/>
           <Footer/>
         </Fragment>
       </div>

@@ -3,7 +3,7 @@ import classes from './Blog.module.scss';
 import BlogItem from '../../components/BlogItem/BlogItem';
 import axios from 'axios';
 
-import HeaderMain from '../../components/HeaderMain/HeaderMain';
+import HeaderMain from '../../components/UI/HeaderMain/HeaderMain';
 
 const Blog = (props) => {
     let [blogState, setBlog] = useState({ posts: null });

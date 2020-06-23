@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import { Link} from 'react-router-dom';
 import classes from './BlogItem.module.scss';
-import Button from '../Button/Button';
-import HeaderSecond from '../HeaderSecond/HeaderSecond';
+import Button from '../UI/Button/Button';
+import HeaderSecond from '../UI/HeaderSecond/HeaderSecond';
 
 const BlogItem = (props) => {
     return (

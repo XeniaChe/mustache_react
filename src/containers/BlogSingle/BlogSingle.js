@@ -1,8 +1,8 @@
 import React , {Fragment, useState, useEffect} from 'react';
 import classes from './BlogSingle.module.scss';
 import axios from 'axios';
-import HeaderMain from '../../components/HeaderMain/HeaderMain';
-import HeaderSecond from '../../components/HeaderSecond/HeaderSecond';
+import HeaderMain from '../../components/UI/HeaderMain/HeaderMain';
+import HeaderSecond from '../../components/UI/HeaderSecond/HeaderSecond';
 
 const BlogSingle = (props) => {
     const [stateBlogSingle, setBlogSingle] = useState({ post:null });

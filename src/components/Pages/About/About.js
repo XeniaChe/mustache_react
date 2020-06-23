@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import classes from './About.module.scss';
-import HeaderMain from '../../HeaderMain/HeaderMain';
-import HeaderSecond from '../../HeaderSecond/HeaderSecond';
+import HeaderMain from '../../UI/HeaderMain/HeaderMain';
+import HeaderSecond from '../../UI/HeaderSecond/HeaderSecond';
 
 const About = (props) => {
     return (
