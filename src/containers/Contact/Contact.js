@@ -5,7 +5,7 @@ import Button from '../../components/UI/Button/Button';
 import HeaderMain from '../../components/UI/HeaderMain/HeaderMain';
 import TextArea from '../../components/TextArea/TextArea';
 import axios from 'axios';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import SubmitSuccess from '../../components/UI/submitSuccess/submitSuccess';
 
 const Contact = (props) => {
@@ -18,7 +18,8 @@ const Contact = (props) => {
             message: ''
         },
         readyToSend: false,
-        submitted: false
+        submitted: false,
+        redirect: false
     });
 
 
@@ -89,7 +90,8 @@ const Contact = (props) => {
         }
         return () => {
             setTimeout(() => {
-                props.history.replace('/home')
+                // props.history.replace('/home')  //deleted because caused the redirect from Blog and About
+                setContactState({redirect: true })
             }, 2000);
         }
     }, [contactState.submitted])
@@ -99,6 +101,10 @@ const Contact = (props) => {
        return <Input key={el.id} title={el.id} id={el.id}  placeholder={el.placeHolder} changeInptut={event => changeInputDataHAndler(event, el.id)} />
     });
 
+    let redirect = null;
+    if (contactState.redirect) { 
+        redirect = <Redirect to='/home'/>
+    }
     return(
         <Fragment>
             { !contactState.submitted ? 
@@ -111,6 +117,7 @@ const Contact = (props) => {
                 <Button click={submittDataHandler}>send</Button>
             </section> : 
             <SubmitSuccess/>}
+           {redirect}
         </Fragment>
         
     )
