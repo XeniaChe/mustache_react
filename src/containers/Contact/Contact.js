@@ -9,6 +9,32 @@ import SubmitSuccess from '../../components/UI/submitSuccess/submitSuccess';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 const Contact = (props) => {
+	let ElementFill = function(
+		elementType,
+		name,
+		placeholder,
+		minLength,
+		maxLength,
+		isEmail,
+		isNumeric
+	) {
+		this.elementType = elementType;
+		this.elConfig = {
+			name: name,
+			placeholder: placeholder
+		};
+		this.value = '';
+		this.validation = {
+			required: true,
+			minLength: minLength,
+			maxLength: maxLength,
+			isEmail: isEmail,
+			isNumeric: isNumeric
+		};
+		this.valid = false;
+		this.touched = false;
+	};
+
 	const [ contactState, setContactState ] = useState({
 		sentPost: {
 			name: '',
@@ -17,82 +43,118 @@ const Contact = (props) => {
 			number: '',
 			message: ''
 		},
-		readyToSend: false,
 		submitted: false,
-		redirect: false,
-		sending: false
+		sending: false,
+		formFields: {
+			name: new ElementFill('input', 'name', 'your name'),
+			address: new ElementFill('input', 'address', 'your address'),
+			email: new ElementFill(
+				'input',
+				'email',
+				'your email',
+				false,
+				false,
+				true
+			),
+			number: new ElementFill(
+				'input',
+				'number',
+				'your phone number',
+				false,
+				false,
+				false,
+				true
+			),
+			message: new ElementFill('textarea', 'message', 'your message')
+		},
+		formIsValid: false
 	});
 
-	const inputFields = [
-		{ id: 'name', placeHolder: 'your name' },
-		{ id: 'address', placeHolder: 'your address' },
-		{ id: 'email', placeHolder: 'your email' },
-		{ id: 'number', placeHolder: 'your phone number' },
-		{ id: 'message', placeHolder: 'your message' }
-	];
+	// Form VALIDATION
+	const formValidCheck = (value, rules) => {
+		let isValid = true;
+		if (rules.required) {
+			isValid = value.trim() !== '' && isValid;
+		}
 
+		if (rules.minLength) {
+			isValid = value.length >= rules.minLength && isValid;
+		}
+
+		if (rules.maxLength) {
+			isValid = value.length <= rules.maxLength && isValid;
+		}
+
+		//to check if it's an email.
+		if (rules.isEmail) {
+			const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+			isValid = pattern.test(value) && isValid;
+		}
+
+		if (rules.isNumeric) {
+			const pattern = /^\d+$/;
+			isValid = pattern.test(value) && isValid;
+		}
+
+		return isValid;
+	};
+
+	//on Input Hadler
 	const changeInputDataHAndler = (event, id) => {
 		let inputData = event.target.value;
-		let stateCopy = {
+		let statePostCopy = {
 			...contactState.sentPost
 		};
 
-		stateCopy[id] = inputData;
-		setContactState({
-			sentPost: stateCopy
+		statePostCopy[id] = inputData;
+		let formFieldsCopy = {
+			...contactState.formFields
+		};
+		let formElCopy = {
+			...contactState.formFields[id]
+		};
+		//Validation check
+		formElCopy.valid = formValidCheck(inputData, formElCopy.validation);
+
+		formElCopy.touched = true;
+		formFieldsCopy[id] = formElCopy;
+
+		// Checking overall form validation
+		let formIsValid = true;
+		for (let id in formFieldsCopy) {
+			formIsValid = formFieldsCopy[id].valid && formIsValid;
+		}
+
+		setContactState((prevState) => {
+			return {
+				sentPost: statePostCopy,
+				submitted: prevState.submitted,
+				sending: prevState.sending,
+				formFields: formFieldsCopy,
+				formIsValid: formIsValid
+			};
 		});
 	};
 
 	const submittDataHandler = () => {
 		setContactState({
-			readyToSend: true,
-			submitted: true,
-			sentPost: {
-				name: contactState.sentPost.name,
-				address: contactState.sentPost.address,
-				email: contactState.sentPost.email,
-				phoneNumber: contactState.sentPost.number,
-				message: contactState.sentPost.message
-			},
-			sending: true
+			sentPost: contactState.sentPost,
+			submitted: contactState.submitted,
+			sending: !contactState.sending,
+			formFields: contactState.formFields,
+			formIsValid: contactState.formIsValid
 		});
-	};
-
-	useEffect(
-		() => {
-			if (contactState.readyToSend) {
-				try {
-					const postData = async () => {
-						const postResult = await axios.post(
-							'/usersData/',
-							contactState.sentPost
-						);
-					};
-					postData();
-					// toogle the state
-					setContactState({
-						readyToSend: false,
-						submitted: true,
-						sentPost: {
-							name: '',
-							address: '',
-							email: '',
-							number: '',
-							message: ''
-						},
-						sending: false
-					});
-					setTimeout(() => {
-						props.history.push('/home');
-					}, 2000);
-				} catch (error) {
-					console.log(error);
-				}
-			}
-			return () => {
+		if (contactState.formIsValid) {
+			try {
+				const postData = async () => {
+					const postResult = await axios.post(
+						'/usersData/',
+						contactState.sentPost
+					);
+				};
+				postData();
+				// toogle the state
 				setContactState({
-					readyToSend: false,
-					submitted: false,
 					sentPost: {
 						name: '',
 						address: '',
@@ -100,34 +162,46 @@ const Contact = (props) => {
 						number: '',
 						message: ''
 					},
-					sending: false
+					submitted: !contactState.submitted,
+					sending: false,
+					formFields: contactState.formFields,
+					formIsValid: false
 				});
-			};
-		},
-		[ contactState.submitted ]
-	);
+				setTimeout(() => {
+					props.history.push('/home');
+				}, 2000);
+			} catch (error) {
+				console.log(error);
+			}
+		}
+	};
+
+	//Array from state formFields
+	let stateArray = [];
+	for (let key in contactState.formFields) {
+		stateArray.push({
+			configuration: contactState.formFields[key],
+			id: key
+		});
+	}
 
 	let form = (
 		<form action='#' className={classes.contact__form} id='form'>
-			{inputFields.slice(0, 4).map((el) => {
+			{stateArray.map((el) => {
 				return (
 					<Input
 						key={el.id}
-						title={el.id}
+						title={el.configuration.elConfig.name}
 						id={el.id}
-						placeholder={el.placeHolder}
+						placeholder={el.configuration.elConfig.placeholder}
 						changeInptut={(event) =>
 							changeInputDataHAndler(event, el.id)}
+						invalid={!el.configuration.valid}
+						touched={el.configuration.touched}
 					/>
 				);
 			})}
-			<TextArea
-				title={inputFields[4].id}
-				id={inputFields[4].id}
-				placeholder={inputFields[4].placeHolder}
-				changeInput={(event) =>
-					changeInputDataHAndler(event, inputFields[4].id)}
-			/>
+			<Button click={submittDataHandler}>send</Button>
 		</form>
 	);
 
@@ -137,7 +211,6 @@ const Contact = (props) => {
 				<section className={classes.contact}>
 					<HeaderMain>let's keep in touch</HeaderMain>
 					{contactState.sending ? <Spinner /> : form}
-					<Button click={submittDataHandler}>send</Button>
 				</section>
 			) : (
 				<SubmitSuccess />
