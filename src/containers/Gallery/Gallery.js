@@ -28,17 +28,6 @@ const Gallery = (props) => {
 		}
 	}, []);
 
-	// useEffect(() => {
-	// 	const loadData = async () => {
-	// 		const response = await axios.get('/persons/');
-	// 		setGallery({
-	// 			persons: response.data,
-	// 			loading: false
-	// 		});
-	// 	};
-	// 	loadData();
-	// }, []);
-
 	//RENDERING LIST
 	let persons = null;
 	if (stateGallery.loading) {
