@@ -1,52 +1,59 @@
 @import '../../sass/mixins';
 @import '../../sass/variables';
 
-
-
-.form__group{
-    margin: 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr;
+.form__group {
+	margin: 1.5rem;
+	display: grid;
+	grid-template-columns: 1fr;
 }
 
-.form__input, 
+.form__input,
 textarea {
-    color: inherit;
-    border: 2px solid $base_color_dark;
-    font-size: 1.6rem;
-    text-align: center;
-    padding: 1.5rem 3rem;
-    text-transform: uppercase;
-    font-family: inherit;
-    box-sizing: inherit;
+	color: inherit;
+	border: 2px solid $base_color_dark;
+	font-size: 1.6rem;
+	text-align: center;
+	padding: 1.5rem 3rem;
+	text-transform: uppercase;
+	font-family: inherit;
+	box-sizing: inherit;
 
-    &:focus{
-        box-shadow: 0rem  1.5rem 4rem rgba($base_color_dark, .2);
-        outline: none;
-    }
+	&:focus {
+		box-shadow: 0rem 1.5rem 4rem rgba($base_color_dark, .2);
+		outline: none;
+	}
 
-    &::-webkit-input-placeholder{
-        color: $base_color_dark;
-    }
+	&::-webkit-input-placeholder {
+		color: $base_color_dark;
+	}
 
-    &:focus:invalid {
-        border-bottom: 3px solid orangered;
-    }
+	&:focus:invalid {
+		border-bottom: 3px solid orangered;
+	}
 }
 
-
-.form__label{
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 1.5rem 3rem;
-    display: block;     
-    transition: all .3s;
+.form__label {
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 1.5rem 3rem;
+	display: block;
+	transition: all .3s;
 }
 
-.form__input:placeholder-shown + .form__label{
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-5rem);
+.form__input:placeholder-shown + .form__label {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-5rem);
 }
 
+.Invalid {
+	border: 1px solid red;
+	background-color: rgb(247, 152, 141);
+}
+.ValidationError {
+	font-size: 1.6rem;
+	text-align: center;
+	color: red;
+	display: block;
+}
