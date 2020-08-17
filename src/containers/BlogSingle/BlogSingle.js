@@ -39,6 +39,8 @@ const BlogSingle = (props) => {
 	);
 
 	if (stateBlogSingle.post) {
+		const sourceImage = require(`../../images/${stateBlogSingle.post
+			.photo}`);
 		post = (
 			<Fragment>
 				<section className={classes.blog_single}>
@@ -47,10 +49,7 @@ const BlogSingle = (props) => {
 					</div>
 					<div className={classes.blog_single__visual}>
 						<figure className={classes.blog_single__image}>
-							<img
-								src={`../images/${stateBlogSingle.post.photo}`}
-								className={classes.photo}
-							/>
+							<img src={sourceImage} className={classes.photo} />
 						</figure>
 					</div>
 				</section>

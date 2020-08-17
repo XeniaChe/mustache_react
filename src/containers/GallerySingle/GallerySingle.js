@@ -10,7 +10,6 @@ const GallerySinglePost = (props) => {
 	});
 
 	useEffect(() => {
-		// console.log(props)
 		try {
 			const loadData = async () => {
 				if (
@@ -45,13 +44,11 @@ const GallerySinglePost = (props) => {
 	}
 
 	if (statePost.person) {
+		const sourceImage = require(`../../images/${statePost.person.image}`);
 		item = (
 			<Fragment>
 				<figure className={classes.visual__photo_box}>
-					<img
-						src={`../images/${statePost.person.image}`}
-						className={classes.visual__photo}
-					/>
+					<img src={sourceImage} className={classes.visual__photo} />
 				</figure>
 				<div className={classes.single__story__text}>
 					<h2 className={classes.header__second__large}>
