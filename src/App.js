@@ -44,7 +44,7 @@ function App() {
 				<Fragment>
 					<Header />
 					<Switch>
-						<Route path='/home' component={Home} />
+						<Route path='/' exact component={Home} />
 						<Route path='/about' exact component={AsyncAbout} />
 						<Route path='/blog/:id' component={AsyncBlogSingle} />
 						<Route path='/blog' component={AsyncBlog} />
