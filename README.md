@@ -1,4 +1,4 @@
-   For testing and development purpose  this application uses JSON-Server to mock an API.  You can find  faker.json database  in the root folder. 
+   For testing and development purpose  this application uses JSON-Server API to mock a client-server connection with a real server.  You can find  faker.json database  in the root folder. 
 
 To run this API, please, follow these steps:
  1. install json-server globally:  npm install -g json-server;
