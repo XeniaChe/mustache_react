@@ -6,10 +6,7 @@ import Footer from './components/Footer/Footer';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Gallery from './containers/Gallery/Gallery';
 import Home from './components/Pages/Home/Home';
-import GallerySingle from './containers/GallerySingle/GallerySingle';
-
 import asyncComp from './components/HOC/asyncComponent/asyncComponent';
 
 function App() {
