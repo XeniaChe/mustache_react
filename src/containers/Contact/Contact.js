@@ -3,10 +3,11 @@ import classes from './Contact.module.scss';
 import Input from '../../components/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import HeaderMain from '../../components/UI/HeaderMain/HeaderMain';
-import TextArea from '../../components/TextArea/TextArea';
+// import TextArea from '../../components/TextArea/TextArea';
 import axios from 'axios';
 import SubmitSuccess from '../../components/UI/submitSuccess/submitSuccess';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../components/HOC/withErrorHandler/withErrorHandler';
 
 const Contact = (props) => {
 	let ElementFill = function(
@@ -139,8 +140,8 @@ const Contact = (props) => {
 	const submittDataHandler = () => {
 		setContactState({
 			sentPost: contactState.sentPost,
-			submitted: contactState.submitted,
-			sending: !contactState.sending,
+			submitted: false,
+			sending: true,
 			formFields: contactState.formFields,
 			formIsValid: contactState.formIsValid
 		});
@@ -151,9 +152,28 @@ const Contact = (props) => {
 						'/usersData/',
 						contactState.sentPost
 					);
+					// toogle the state if submitted successfull
+					setContactState({
+						sentPost: {
+							name: '',
+							address: '',
+							email: '',
+							number: '',
+							message: ''
+						},
+						submitted: true,
+						sending: false,
+						formFields: contactState.formFields,
+						formIsValid: false
+					});
+					setTimeout(() => {
+						props.history.push('/home');
+					}, 2000);
 				};
 				postData();
-				// toogle the state
+			} catch (error) {
+				console.log(error);
+				// toogle the state if error
 				setContactState({
 					sentPost: {
 						name: '',
@@ -162,16 +182,11 @@ const Contact = (props) => {
 						number: '',
 						message: ''
 					},
-					submitted: !contactState.submitted,
+					submitted: false,
 					sending: false,
 					formFields: contactState.formFields,
 					formIsValid: false
 				});
-				setTimeout(() => {
-					props.history.push('/home');
-				}, 2000);
-			} catch (error) {
-				console.log(error);
 			}
 		}
 	};
@@ -219,4 +234,4 @@ const Contact = (props) => {
 	);
 };
 
-export default Contact;
+export default withErrorHandler(Contact, axios);
