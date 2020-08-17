@@ -9,11 +9,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Gallery from './containers/Gallery/Gallery';
 import Home from './components/Pages/Home/Home';
 import GallerySingle from './containers/GallerySingle/GallerySingle';
-// import About from './components/Pages/About/About';
-// import Blog from './containers/Blog/Blog';
-// import BlogSingle from './containers/BlogSingle/BlogSingle';
-// import Contact from './containers/Contact/Contact';
-// import PathNotFound from './components/UI/404/404';
 
 import asyncComp from './components/HOC/asyncComponent/asyncComponent';
 
@@ -52,7 +47,7 @@ function App() {
 				<Fragment>
 					<Header />
 					<Switch>
-						<Route path='/' exact component={Home} />
+						<Route path='/home' exact component={Home} />
 						<Route path='/about' exact component={AsyncAbout} />
 						<Route path='/blog/:id' component={AsyncBlogSingle} />
 						<Route path='/blog' component={AsyncBlog} />
